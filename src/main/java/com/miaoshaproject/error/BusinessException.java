@@ -6,7 +6,7 @@ package com.miaoshaproject.error;
 public class BusinessException extends Exception implements CommonError{
     private CommonError commonError; //强关联一个CommonError
 
-    //直接接收传参，用于狗仔业务异常
+    //直接接收传参，用于构建业务异常
     public BusinessException(CommonError commonError){
         super(); //Exception的自身会有一个初始化的
         this.commonError = commonError;

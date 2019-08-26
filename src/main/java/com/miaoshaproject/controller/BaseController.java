@@ -12,7 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * controller异常
+ */
 public class BaseController {
+    public static final String CONTENT_TYPE_FORMED = "application/x-www-form-urlencoded";
 
     //定义exceptionhandler解决未被controller层吸收的exception
     @ExceptionHandler(Exception.class)
@@ -28,6 +32,7 @@ public class BaseController {
         else {
             responseData.put("errCode", EmBusinessError.UNKNOW_ERROR.getErrCode());
             responseData.put("errMsg",EmBusinessError.UNKNOW_ERROR.getErrMsg());
+            ex.printStackTrace();
         }
         return CommonReturnType.creat(responseData, "fail");
 
